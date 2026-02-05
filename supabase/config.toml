@@ -1,0 +1,4 @@
+ project_id = "ehyysmogbogtwzvpbvik"
+ 
+ [functions.predict-engagement]
+ verify_jwt = false
