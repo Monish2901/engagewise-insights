@@ -1,23 +1,25 @@
- import { ReactNode } from "react";
- import { Link, useLocation } from "react-router-dom";
- import { cn } from "@/lib/utils";
- import {
-   LayoutDashboard,
-   Users,
-   TrendingUp,
-   Settings,
-   GraduationCap,
- } from "lucide-react";
+import { ReactNode } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import {
+  LayoutDashboard,
+  Users,
+  TrendingUp,
+  GraduationCap,
+  GitCompare,
+} from "lucide-react";
+import { UserMenu } from "@/components/UserMenu";
  
  interface DashboardLayoutProps {
    children: ReactNode;
  }
  
- const navigation = [
-   { name: "Dashboard", href: "/", icon: LayoutDashboard },
-   { name: "Students", href: "/students", icon: Users },
-   { name: "Analytics", href: "/analytics", icon: TrendingUp },
- ];
+const navigation = [
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Students", href: "/students", icon: Users },
+  { name: "Compare", href: "/compare", icon: GitCompare },
+  { name: "Analytics", href: "/analytics", icon: TrendingUp },
+];
  
  export function DashboardLayout({ children }: DashboardLayoutProps) {
    const location = useLocation();
@@ -63,8 +65,10 @@
                    {item.name}
                  </Link>
                );
-             })}
-           </nav>
+              })}
+            </nav>
+
+            <UserMenu />
  
            {/* Mobile nav */}
            <nav className="flex md:hidden items-center gap-1">
